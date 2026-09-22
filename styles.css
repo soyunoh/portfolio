@@ -5,7 +5,7 @@
   --line: #e6e6e6;
   --surface: #f2f2f2;
   --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --gutter: clamp(20px, 10.5vw, 213px);
   --gap: 13px;
   --radius: 8px;
