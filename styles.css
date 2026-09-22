@@ -112,7 +112,7 @@ img, svg { display: block; max-width: 100%; }
 .cs-hero .back { color: var(--muted); font-size: 14px; }
 .cs-hero .back:hover { color: var(--ink); }
 .cs-hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 4.6vw, 64px); line-height: 1.1; letter-spacing: -0.01em; margin: 20px 0 16px; max-width: 18ch; }
-.cs-hero p.sub { color: var(--muted); font-size: clamp(16px, 1.4vw, 19px); max-width: 52ch; }
+.cs-hero p.sub { color: var(--muted); font-size: clamp(16px, 1.4vw, 19px); }
 .cs-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; padding: 24px 0; border-block: 1px solid var(--line); margin: 40px 0; }
 .cs-facts dt { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .cs-facts dd { margin-top: 4px; }
