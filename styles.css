@@ -18,10 +18,6 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-/* Mouse pointer: the sun mark (logo-1b), hotspot at its centre. */
-html { cursor: url("images/cursor-sun.png") 8 8, auto; }
-/* Clickable things get the same sun with its centre filled (instead of the pointing hand) */
-a[href], button { cursor: url("images/cursor-sun-link.png") 8 8, pointer; }
 
 body {
   background: var(--bg);
