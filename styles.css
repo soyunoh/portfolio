@@ -19,15 +19,9 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 /* Mouse pointer: the sun mark (logo-1b), hotspot at its centre. */
-html {
-  cursor: url("images/cursor-sun.svg") 6 6, auto;
-  cursor: -webkit-image-set(url("images/cursor-sun.png") 1x, url("images/cursor-sun@2x.png") 2x, url("images/cursor-sun@3x.png") 3x) 6 6, auto;
-}
+html { cursor: url("images/cursor-sun.png") 8 8, auto; }
 /* Clickable things get the same sun with its centre filled (instead of the pointing hand) */
-a[href], button {
-  cursor: url("images/cursor-sun-link.svg") 6 6, pointer;
-  cursor: -webkit-image-set(url("images/cursor-sun-link.png") 1x, url("images/cursor-sun-link@2x.png") 2x, url("images/cursor-sun-link@3x.png") 3x) 6 6, pointer;
-}
+a[href], button { cursor: url("images/cursor-sun-link.png") 8 8, pointer; }
 
 body {
   background: var(--bg);
