@@ -43,7 +43,7 @@ Most content is still placeholder. Placeholders are written in `[square brackets
 - Don't use real companies' logos, names or imagery as placeholders.
 - When real images arrive, put them in `images/`, compress them, and swap the placeholder element (`.art` SVG in tiles, `.cs-cover` / `.cs-figure` in case studies; About photos are already real `.card.photo` images) for an `<img>` with `alt` text, `width`/`height` and `loading="lazy"` (not on the first visible image).
 
-Known values still to replace: social links that are still `href="#"` (Instagram), all case-study facts and copy.
+Known values still to replace: the `Resume` link (`href="#"`), all case-study facts and copy. All four footer social links (LinkedIn, Instagram, X, email) are real.
 
 ## Working on it
 
