@@ -23,6 +23,11 @@
     --divider: #DCDCDC;
     --summary-bg: #FEF5F5;
     --page-bg: #CCCCCC;
+    /* Matches the main site's --gutter (styles.css), so the sheet lines up with the same content width as every other page */
+    --gutter: clamp(20px, 10.5vw, 213px);
+  }
+  @media (min-width: 960px) {
+    :root { --gutter: min(12vw, 260px); }
   }
 
   * { box-sizing: border-box; }
@@ -40,14 +45,14 @@
   a:hover { color: var(--sage); border-bottom-color: var(--sage); }
 
   /* Back link (site chrome, not part of the printed sheet) */
-  .back-row { max-width: 8.5in; margin: 0 auto; padding: 18px 0 0; }
+  .back-row { padding: 18px var(--gutter) 0; }
   .back { font-size: 12px; color: #6b6b6b; border-bottom: none; }
   .back:hover { color: var(--sage); }
 
-  .page { padding: 10px 20px 32px; display: flex; justify-content: center; }
+  .page { padding: 10px var(--gutter) 32px; }
 
   .sheet {
-    width: 8.5in;
+    width: 100%;
     min-height: 11in;
     background: #ffffff;
     box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
@@ -126,9 +131,9 @@
 
   /* Responsive: below ~860px let the sheet go fluid */
   @media (max-width: 860px) {
-    .back-row { padding: 14px 20px 0; max-width: none; }
-    .page { padding: 8px 0 28px; }
-    .sheet { width: 100%; min-height: 0; padding: 28px 20px 32px; }
+    .back-row { padding-top: 14px; }
+    .page { padding-top: 8px; padding-bottom: 28px; }
+    .sheet { min-height: 0; padding: 28px 20px 32px; }
     .entry-top { flex-direction: column; align-items: flex-start; gap: 6px; }
     .entry-meta { margin-left: 0; gap: 10px 20px; }
     .bottom-grid { grid-template-columns: 1fr; gap: 24px; }
