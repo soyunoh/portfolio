@@ -12,12 +12,13 @@ A designer portfolio (product / UX / UI). Static site: plain HTML, CSS and JS, n
 index.html              Landing: header, then straight into the 2-column project grid (hover overlay); no headline/hero text
 about.html              About: intro, one photo gallery with no heading (three staggered columns of 4 photos each plus one full-width wide photo; columns have equal height so the block is a clean rectangle), the shared footer
 projects/*.html         One case study per project (medly-solar, pocket-saju, connai, qvest; each links to the next)
+resume/index.html       Interactive résumé, self-contained (its own <style>/<script>, own font load) — see "Résumé page" below
 images/                 Real project images (compress before adding)
-styles.css              All styles, shared by every page
-script.js               Footer year, scroll reveal
+styles.css              All styles, shared by every page (not used by resume/index.html)
+script.js               Footer year, scroll reveal (not used by resume/index.html)
 ```
 
-The nav is `Work`, `About` and `Resume`. `Archive` and `Contact` were removed on purpose; don't add them back. The `Resume` link is `href="#"` until the owner shares what it should open. There is no contact button; visitors reach you through the footer icons (email, LinkedIn, ...) and the email icon in the About footer.
+The nav is `Work`, `About` and `Résumé`. `Archive` and `Contact` were removed on purpose; don't add them back. `Résumé` links to `resume/` (root pages) / `../resume/` (project pages). There is no contact button; visitors reach you through the footer icons (email, LinkedIn, ...) and the email icon in the About footer.
 
 ## Conventions
 
@@ -26,7 +27,7 @@ The nav is `Work`, `About` and `Resume`. `Archive` and `Contact` were removed on
 - **Header logo:** `images/logo-4a.svg` (sun mark from the owner's design hand-off, provenance metadata stripped) sits in `.brand` before the wordmark, rotated -45deg at its upper left exactly as in the design reference; its left edge is the page's left edge and the wordmark is pushed right to make room. Don't move it without checking the reference.
 - **Mouse pointer:** the browser default. The owner tried several custom sun-shaped cursors (logo-1b in various sizes, then their own 16px PNG) and asked to go back to the default, so do not add a custom cursor or cursor images; links keep the normal pointing hand.
 - **Design tokens** live in `:root` at the top of `styles.css` (colours, fonts, gutter, gap, radius). Change them there, not inline.
-- **Fonts:** Newsreader (serif, headings) and Source Sans 3 (UI/body, `--sans`), plus Comfortaa (500) only for the `Soyun` brand name and the `Work` / `About` / `Resume` nav, loaded from Google Fonts in each page's `<head>`. Keep that `<link>` identical across pages.
+- **Fonts:** Newsreader (serif, headings) and Source Sans 3 (UI/body, `--sans`), plus Comfortaa (500) only for the `Soyun` brand name and the `Work` / `About` / `Résumé` nav, loaded from Google Fonts in each page's `<head>`. Keep that `<link>` identical across pages. `resume/index.html` is the one exception: it loads its own fonts (EB Garamond + Source Sans 3) and doesn't use `--sans`/Comfortaa, since it was built to a separate design handoff.
 - **Look:** white background, black text, muted grey secondary text, lots of whitespace, large image tiles with 8px radius. No dark mode. Keep it minimal and editorial; avoid adding decoration.
 - **Tile size:** the tile height is fixed by `--tile-h` (the 7:5 height the tiles had with the old 5% margins) and the width follows the shared page width, so images are cropped left/right by `object-fit: cover`. Keep the mockup centred in every tile image.
 - **Landing tiles:** each `.tile` has a `--tint` colour used by the hover overlay (company name + discipline). Touch devices (`hover: none`) show the name in a `.caption` under the tile instead. Keep both in sync when editing a project's name or tags.
@@ -43,7 +44,14 @@ Most content is still placeholder. Placeholders are written in `[square brackets
 - Don't use real companies' logos, names or imagery as placeholders.
 - When real images arrive, put them in `images/`, compress them, and swap the placeholder element (`.art` SVG in tiles, `.cs-cover` / `.cs-figure` in case studies; About photos are already real `.card.photo` images) for an `<img>` with `alt` text, `width`/`height` and `loading="lazy"` (not on the first visible image).
 
-Known values still to replace: the `Resume` link (`href="#"`), all case-study facts and copy. All four footer social links (LinkedIn, Instagram, X, email) are real.
+Known values still to replace: case-study facts and copy where still bracketed. All four footer social links (LinkedIn, Instagram, X, email) are real. The résumé's content (`resume/index.html`) is real, from the owner's own design handoff, not a placeholder.
+
+## Résumé page
+
+`resume/index.html` is a single self-contained file (its own `<style>`/`<script>`, its own Google Fonts load) built from a design handoff the owner supplied; it intentionally doesn't share `styles.css`/tokens/fonts with the rest of the site. It renders as an on-screen "sheet" (white 8.5in-wide card on a grey page background) with click-to-pin/hover tooltips on two education entries (two independent states, `hovered` via CSS `:hover`/`:focus-visible` and `pinned` via a JS-toggled `.pinned` class + `aria-expanded`; Enter/Space toggles, Escape closes and blurs).
+
+- **Print fit:** the source content (copied verbatim per the handoff, "colors, type, spacing, and copy are final") is taller than one US Letter page — confirmed against the original unmodified reference file, so it's not a conversion mistake, just more content than one page holds at the design's own type size. Rather than shrink the on-screen design or cut copy, `@media print` shrinks only the print output: `.sheet { zoom: 0.79; }`. Use `zoom`, not `transform: scale()` — `transform` doesn't affect layout height, so Chrome's print pagination would still reserve the full ~13.7in and produce a second page; `zoom` genuinely shrinks the layout box, which pagination respects. If résumé content grows, this value needs to shrink further (recompute: measure `.sheet`'s screen height, target ≤ 11in × 96px/in = 1056px).
+- Don't reintroduce a `max-width`/`ch` cap or pull in the main site's fonts/tokens here — it's deliberately independent of `styles.css`.
 
 ## Working on it
 
