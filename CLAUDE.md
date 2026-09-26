@@ -12,7 +12,7 @@ A designer portfolio (product / UX / UI). Static site: plain HTML, CSS and JS, n
 index.html              Landing: header, then straight into the 2-column project grid (hover overlay); no headline/hero text
 about.html              About: intro, one photo gallery with no heading (three staggered columns of 4 photos each plus one full-width wide photo; columns have equal height so the block is a clean rectangle), the shared footer
 projects/*.html         One case study per project (medly-solar, pocket-saju, connai, qvest; each links to the next)
-images/                 Real project images (compress before adding)
+images/                 Real project images (compress before adding); favicon.svg (+ favicon-48.png, apple-touch-icon.png) is the sun mark from logo-4a.svg on a white rounded tile
 styles.css              All styles, shared by every page
 script.js               Footer year, scroll reveal
 ```
