@@ -145,6 +145,11 @@ img, svg { display: block; max-width: 100%; }
 .cs-device { position: absolute; top: 0; left: 0; width: 432px; height: 904px; padding: 15px; border-radius: 68px; background: linear-gradient(145deg, #ffffff, #f0ece8); box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 22px 54px rgba(0,0,0,.16), inset 0 0 0 2px #ffffff; transform-origin: top left; transform: scale(calc(100cqw / 432px)); }
 .cs-screen { position: relative; width: 402px; height: 874px; border-radius: 54px; overflow: hidden; background: #fff8f1; box-shadow: 0 0 0 1px rgba(0,0,0,.1); }
 .cs-screen iframe { position: absolute; inset: 0; display: block; width: 402px; height: 874px; border: 0; }
+.cs-loading { position: absolute; inset: 0; z-index: 1; display: grid; place-content: center; justify-items: center; gap: 14px; background: #fff8f1; color: var(--muted); font: 500 15px/1.2 var(--sans); transition: opacity .4s ease, visibility .4s; }
+.cs-loading.done { opacity: 0; visibility: hidden; }
+.cs-spin { width: 28px; height: 28px; border: 2.5px solid var(--line); border-top-color: var(--ink); border-radius: 50%; animation: cs-spin .8s linear infinite; }
+@keyframes cs-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .cs-spin { animation: none; border-top-color: var(--line); } }
 .cs-island { position: absolute; z-index: 2; top: 11px; left: 50%; width: 126px; height: 37px; margin-left: -63px; border-radius: 19px; background: #000; pointer-events: none; }
 .cs-status { position: absolute; z-index: 2; top: 0; left: 0; right: 0; height: 52px; color: #1c1512; font: 600 17px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; pointer-events: none; }
 .cs-time { position: absolute; top: 18px; left: 0; width: 144px; text-align: center; }
