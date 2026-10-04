@@ -12,7 +12,9 @@
       frame.src = box.getAttribute("data-embed");
       frame.title = box.getAttribute("data-title") || "Interactive prototype";
       frame.setAttribute("allow", "clipboard-write");
-      box.replaceChildren(frame);
+      var screen = box.querySelector(".cs-screen");
+      screen.insertBefore(frame, screen.firstChild);
+      start.remove();
       frame.focus();
     });
   });

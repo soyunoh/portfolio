@@ -139,19 +139,21 @@ img, svg { display: block; max-width: 100%; }
 .next h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 5vw, 64px); letter-spacing: -0.01em; margin-top: 6px; transition: opacity .2s; }
 .next:hover h2 { opacity: .55; }
 
-/* Interactive prototype (Pocket Saju): a phone-shaped frame that loads the app only after a click, so the case study stays light. */
-.cs-proto { display: grid; gap: 28px; padding: 0 0 clamp(36px, 5vw, 72px); justify-items: center; }
-.cs-proto-copy { display: grid; gap: 14px; justify-self: stretch; }
-.cs-proto-copy h2 { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-.cs-proto-copy p { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.55; max-width: 60ch; }
-.cs-proto-phone { container-type: inline-size; position: relative; width: min(402px, 100%); aspect-ratio: 402 / 874; border-radius: 44px; overflow: hidden; background: var(--surface); box-shadow: 0 0 0 8px #1a1a1a; margin: 8px 0; }
-/* the app is laid out for a 402x874 phone: keep that size and scale it down to the frame on narrow screens (same technique as .cs-cover-embed) */
-.cs-proto-phone iframe { display: block; width: 402px; height: 874px; border: 0; transform-origin: top left; transform: scale(calc(100cqw / 402px)); }
-.cs-proto-start { all: unset; box-sizing: border-box; display: grid; place-items: center; width: 100%; height: 100%; cursor: pointer; font-family: var(--sans); font-size: 15px; font-weight: 500; }
+/* Interactive prototype (Pocket Saju): a white iPhone-shaped frame (402x874 screen, 15px body) that loads the app only after a click, so the case study stays light.
+   The frame is drawn at its natural size and scaled to fit the column (and the window height) with a container-query unit, as .cs-cover-embed does. */
+.cs-proto-phone { position: relative; container-type: inline-size; width: min(100%, 432px, max(300px, calc((100svh - 96px) * 432 / 904))); aspect-ratio: 432 / 904; margin: 12px auto 0; }
+.cs-device { position: absolute; top: 0; left: 0; width: 432px; height: 904px; padding: 15px; border-radius: 68px; background: linear-gradient(145deg, #ffffff, #f0ece8); box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 22px 54px rgba(0,0,0,.16), inset 0 0 0 2px #ffffff; transform-origin: top left; transform: scale(calc(100cqw / 432px)); }
+.cs-screen { position: relative; width: 402px; height: 874px; border-radius: 54px; overflow: hidden; background: #fff8f1; box-shadow: 0 0 0 1px rgba(0,0,0,.1); }
+.cs-screen iframe { position: absolute; inset: 0; display: block; width: 402px; height: 874px; border: 0; }
+.cs-island { position: absolute; z-index: 2; top: 11px; left: 50%; width: 126px; height: 37px; margin-left: -63px; border-radius: 19px; background: #000; pointer-events: none; }
+.cs-status { position: absolute; z-index: 2; top: 0; left: 0; right: 0; height: 52px; color: #1c1512; font: 600 17px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; pointer-events: none; }
+.cs-time { position: absolute; top: 18px; left: 0; width: 144px; text-align: center; }
+.cs-sys { position: absolute; top: 19px; right: 30px; display: flex; align-items: center; gap: 6px; fill: currentColor; }
+.cs-home { position: absolute; z-index: 2; bottom: 8px; left: 50%; width: 144px; height: 5px; margin-left: -72px; border-radius: 3px; background: #1c1512; pointer-events: none; }
+.cs-proto-start { all: unset; box-sizing: border-box; position: absolute; inset: 0; display: grid; place-items: center; cursor: pointer; font-family: var(--sans); font-size: 15px; font-weight: 500; }
 .cs-proto-start span { padding: 12px 22px; border-radius: 999px; background: var(--ink); color: var(--bg); transition: opacity .2s; }
 .cs-proto-start:hover span { opacity: .8; }
 .cs-proto-start:focus-visible span { outline: 2px solid var(--ink); outline-offset: 3px; }
-@media (min-width: 900px) { .cs-proto { grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; justify-items: start; } }
 
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
