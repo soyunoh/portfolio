@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
   <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body id="top">
   <header class="site-header">
     <div class="wrap">
       <a href="../index.html" class="brand"><img class="brand-logo" src="../images/logo-4a.svg" width="36" height="22" alt="">Soyun</a>
@@ -37,27 +37,92 @@
         <div class="cs-cover" style="aspect-ratio: 2000 / 1429"><img src="../images/pocket-saju.webp" width="2000" height="1429" alt="Pocket Saju app home screen with today's read, daily check-in and reading topics"></div>
       </section>
 
-      <section class="cs-block reveal">
-        <h2>Summary</h2>
-        <p>[One line summarizing the project.]</p>
-      </section>
+      <div class="cs-layout" style="--tint:#c9472f">
+        <aside class="cs-toc" aria-label="Table of contents">
+          <div class="cs-toc-inner">
+            <p class="cs-toc-title">Contents</p>
+            <ol>
+              <li><a href="#context">Context</a></li>
+              <li><a href="#solution">The solution</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#design-system">Design system</a></li>
+              <li><a href="#design-to-build">Design to build</a></li>
+              <li><a href="#reflection">Reflection</a></li>
+            </ol>
+            <a class="cs-toc-top" href="#top">↑ Back to top</a>
+          </div>
+        </aside>
 
-      <section class="cs-proto reveal">
-        <div class="cs-proto-copy">
-          <h2>Try the prototype</h2>
-          <p>This is the working app, not a recording. Draw an acorn, enter a birth date, and unlock a reading with test acorns. Nothing is charged and nothing leaves your browser.</p>
-        </div>
-        <div class="cs-proto-phone" data-embed="../prototypes/pocket-saju/" data-title="Pocket Saju interactive prototype">
-          <button type="button" class="cs-proto-start"><span>Tap to try the app</span></button>
-        </div>
-      </section>
+        <div class="cs-body">
+          <section class="cs-sec reveal" aria-labelledby="impact-label">
+            <p class="cs-label" id="impact-label">Impact</p>
+            <div class="cs-stats">
+              <div class="cs-stat"><b>[00+]</b><span>[Metric]</span></div>
+              <div class="cs-stat"><b>[00+]</b><span>[Metric]</span></div>
+              <div class="cs-stat"><b>[00+]</b><span>[Metric]</span></div>
+            </div>
+          </section>
 
-      <div class="cs-mocks">
-        <div class="cs-mock-pair">
-          <div class="cs-mock portrait reveal" role="img" aria-label="Placeholder for a mockup image"><svg viewBox="0 0 539 808" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="ps1-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d3c6"/><stop offset="1" stop-color="#ee9f88"/></linearGradient></defs><rect width="539" height="808" fill="url(#ps1-a)"/><rect x="90" y="40" width="359" height="728" rx="52" fill="#1a1a1a"/><rect x="102" y="52" width="335" height="704" rx="42" fill="#fdf3ee"/></svg></div>
-          <div class="cs-mock portrait reveal" role="img" aria-label="Placeholder for a mockup image"><svg viewBox="0 0 539 808" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="ps2-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d3c6"/><stop offset="1" stop-color="#ee9f88"/></linearGradient></defs><rect width="539" height="808" fill="url(#ps2-a)"/><rect x="90" y="40" width="359" height="728" rx="52" fill="#1a1a1a"/><rect x="102" y="52" width="335" height="704" rx="42" fill="#fdf3ee"/></svg></div>
+          <section class="cs-sec reveal" id="context" aria-labelledby="context-h">
+            <p class="cs-label">Context</p>
+            <h2 id="context-h">[Headline: the problem in one line]</h2>
+            <p>[Describe who the app is for and what wasn't working, with the evidence behind it.]</p>
+          </section>
+
+          <section class="cs-sec reveal" id="solution" aria-labelledby="solution-h">
+            <p class="cs-label">The solution</p>
+            <h2 id="solution-h">[Headline: your approach in one line]</h2>
+            <p>[Explain the idea and why it works for this audience.]</p>
+            <div class="cs-bento">
+              <div class="cs-mock ph " role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
+              <div class="cs-mock ph " role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
+              <div class="cs-mock ph " role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
+            </div>
+          </section>
+
+          <section class="cs-sec reveal" id="features" aria-labelledby="features-h">
+            <p class="cs-label">Features</p>
+            <h2 id="features-h">[Headline: what the app lets people do]</h2>
+            <p>[One or two sentences introducing the key features.]</p>
+            <div class="cs-features">
+              <ul>
+                <li><h3>[Feature one]</h3><p>[One sentence on what it does and why it matters.]</p></li>
+                <li><h3>[Feature two]</h3><p>[One sentence on what it does and why it matters.]</p></li>
+                <li><h3>[Feature three]</h3><p>[One sentence on what it does and why it matters.]</p></li>
+              </ul>
+              <div class="cs-mock ph portrait" role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
+            </div>
+          </section>
+
+          <section class="cs-sec reveal" id="design-system" aria-labelledby="design-system-h">
+            <p class="cs-label">Design system</p>
+            <h2 id="design-system-h">[Headline: the system and character behind the look]</h2>
+            <p>[Describe the design system and the character design: what you built and the decisions behind it.]</p>
+            <div class="cs-mock ph landscape" role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
+          </section>
+
+          <section class="cs-sec reveal" id="design-to-build" aria-labelledby="design-to-build-h">
+            <p class="cs-label">Design to build</p>
+            <h2 id="design-to-build-h">[Headline: how you took it from design to production]</h2>
+            <p>[Describe your design-engineering workflow: tools, how you iterated, and what you shipped.]</p>
+            <div class="cs-trio">
+              <div class="cs-mock ph portrait" role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
+              <div class="cs-mock ph portrait" role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
+              <div class="cs-mock ph portrait" role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
+            </div>
+          </section>
+
+          <section class="cs-sec reveal" id="reflection" aria-labelledby="reflection-h">
+            <p class="cs-label">Reflection</p>
+            <h2 id="reflection-h">What I learned</h2>
+            <p>[One sentence framing the reflection.]</p>
+            <div class="cs-cards">
+              <div class="cs-card"><h3>[Lesson one]</h3><p>[A few sentences on what you learned.]</p></div>
+              <div class="cs-card"><h3>[Lesson two]</h3><p>[A few sentences on what you learned.]</p></div>
+              <div class="cs-card"><h3>[Lesson three]</h3><p>[A few sentences on what you learned.]</p></div>
+            </div>
+          </section>
         </div>
-        <div class="cs-mock wide reveal" role="img" aria-label="Placeholder for a mockup image"><svg viewBox="0 0 1111 833" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="ps-w" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d3c6"/><stop offset="1" stop-color="#ee9f88"/></linearGradient></defs><rect width="1111" height="833" fill="url(#ps-w)"/><rect x="190" y="48" width="731" height="900" rx="100" fill="#1a1a1a"/><rect x="214" y="72" width="683" height="860" rx="80" fill="#fdf3ee"/></svg></div>
       </div>
     </div>
 

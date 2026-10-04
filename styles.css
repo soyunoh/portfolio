@@ -217,3 +217,47 @@ img, svg { display: block; max-width: 100%; }
 
 /* One wide photo spans the full width under the columns */
 .card.wide { grid-column: 1 / -1; aspect-ratio: 21 / 9; }
+
+/* Case study with a table of contents (Pocket Saju): sticky TOC on the left from 1100px, sections on the right */
+.cs-layout { display: grid; gap: 32px; padding-top: clamp(24px, 4vw, 56px); }
+@media (min-width: 1100px) { .cs-layout { grid-template-columns: 200px minmax(0, 1fr); gap: clamp(40px, 5vw, 72px); } }
+.cs-toc { display: none; }
+@media (min-width: 1100px) { .cs-toc { display: block; } }
+.cs-toc-inner { position: sticky; top: 32px; }
+.cs-toc-title, .cs-label { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.cs-toc-title { margin-bottom: 12px; padding: 0 10px; }
+.cs-toc ol { list-style: none; counter-reset: toc; display: grid; gap: 2px; }
+.cs-toc ol a { counter-increment: toc; display: block; padding: 6px 10px; border-radius: 6px; font-size: 14px; color: var(--muted); transition: color .2s, background .2s; }
+.cs-toc ol a::before { content: counter(toc, decimal-leading-zero) ". "; }
+.cs-toc ol a:hover, .cs-toc ol a[aria-current="true"] { color: var(--ink); background: var(--surface); }
+.cs-toc-top { display: inline-block; margin-top: 20px; padding: 0 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.cs-toc-top:hover { color: var(--ink); }
+.cs-sec { display: grid; gap: 14px; padding-bottom: clamp(56px, 7vw, 104px); scroll-margin-top: 24px; }
+.cs-sec h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.2; letter-spacing: -0.01em; }
+.cs-sec > p:not(.cs-label) { font-size: clamp(16px, 1.3vw, 18px); line-height: 1.6; color: #4a4a4a; }
+.cs-sec > :is(.cs-bento, .cs-features, .cs-trio, .cs-cards, .cs-mock) { margin-top: 10px; }
+.cs-stats { display: grid; gap: var(--gap); }
+@media (min-width: 700px) { .cs-stats { grid-template-columns: repeat(3, 1fr); } }
+.cs-stat { background: var(--surface); border-radius: var(--radius); padding: 24px; display: grid; gap: 6px; }
+.cs-stat b { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3vw, 42px); line-height: 1.1; }
+.cs-stat span { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.cs-mock.ph { display: grid; place-items: center; color: var(--muted); font-size: 14px; background: linear-gradient(135deg, color-mix(in srgb, var(--tint) 12%, #fff), color-mix(in srgb, var(--tint) 26%, #fff)); }
+.cs-mock.landscape { aspect-ratio: 16 / 9; }
+.cs-bento { display: grid; gap: var(--gap); }
+.cs-bento > .cs-mock { aspect-ratio: 16 / 10; }
+.cs-bento > .cs-mock:first-child { aspect-ratio: 4 / 5; }
+@media (min-width: 800px) {
+  .cs-bento { grid-template-columns: 1fr 1fr; }
+  .cs-bento > .cs-mock:first-child { grid-row: span 2; aspect-ratio: auto; }
+}
+.cs-features { display: grid; gap: 24px; align-items: start; }
+@media (min-width: 800px) { .cs-features { grid-template-columns: 1.5fr 1fr; gap: clamp(24px, 4vw, 56px); } }
+.cs-features ul { list-style: none; display: grid; gap: var(--gap); }
+.cs-features li { background: var(--surface); border-radius: var(--radius); padding: 20px 24px; }
+.cs-features h3, .cs-card h3 { font-size: 17px; font-weight: 500; margin-bottom: 6px; }
+.cs-features li p, .cs-card p { font-size: 15px; line-height: 1.55; color: #4a4a4a; }
+.cs-trio { display: grid; gap: var(--gap); }
+@media (min-width: 700px) { .cs-trio { grid-template-columns: repeat(3, 1fr); } }
+.cs-cards { display: grid; gap: var(--gap); }
+@media (min-width: 800px) { .cs-cards { grid-template-columns: repeat(3, 1fr); } }
+.cs-card { background: var(--surface); border-radius: var(--radius); padding: 24px; }
