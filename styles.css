@@ -139,6 +139,20 @@ img, svg { display: block; max-width: 100%; }
 .next h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 5vw, 64px); letter-spacing: -0.01em; margin-top: 6px; transition: opacity .2s; }
 .next:hover h2 { opacity: .55; }
 
+/* Interactive prototype (Pocket Saju): a phone-shaped frame that loads the app only after a click, so the case study stays light. */
+.cs-proto { display: grid; gap: 28px; padding: 0 0 clamp(36px, 5vw, 72px); justify-items: center; }
+.cs-proto-copy { display: grid; gap: 14px; justify-self: stretch; }
+.cs-proto-copy h2 { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.cs-proto-copy p { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.55; max-width: 60ch; }
+.cs-proto-phone { container-type: inline-size; position: relative; width: min(402px, 100%); aspect-ratio: 402 / 874; border-radius: 44px; overflow: hidden; background: var(--surface); box-shadow: 0 0 0 8px #1a1a1a; margin: 8px 0; }
+/* the app is laid out for a 402x874 phone: keep that size and scale it down to the frame on narrow screens (same technique as .cs-cover-embed) */
+.cs-proto-phone iframe { display: block; width: 402px; height: 874px; border: 0; transform-origin: top left; transform: scale(calc(100cqw / 402px)); }
+.cs-proto-start { all: unset; box-sizing: border-box; display: grid; place-items: center; width: 100%; height: 100%; cursor: pointer; font-family: var(--sans); font-size: 15px; font-weight: 500; }
+.cs-proto-start span { padding: 12px 22px; border-radius: 999px; background: var(--ink); color: var(--bg); transition: opacity .2s; }
+.cs-proto-start:hover span { opacity: .8; }
+.cs-proto-start:focus-visible span { outline: 2px solid var(--ink); outline-offset: 3px; }
+@media (min-width: 900px) { .cs-proto { grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; justify-items: start; } }
+
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
 .reveal.in { opacity: 1; transform: none; }
