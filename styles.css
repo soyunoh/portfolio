@@ -238,7 +238,8 @@ img, svg { display: block; max-width: 100%; }
 .cs-toc ol { list-style: none; counter-reset: toc; display: grid; gap: 2px; }
 .cs-toc ol a { counter-increment: toc; display: block; padding: 6px 10px; border-radius: 6px; font-size: 14px; color: var(--muted); transition: color .2s, background .2s; }
 .cs-toc ol a::before { content: counter(toc, decimal-leading-zero) ". "; }
-.cs-toc ol a:hover, .cs-toc ol a[aria-current="true"] { color: var(--ink); background: var(--surface); }
+.cs-toc ol a:hover { color: var(--ink); background: var(--surface); }
+.cs-toc ol a[aria-current="true"] { color: #63AE8C; background: #FEF5F5; }
 .cs-toc-top { display: inline-block; margin-top: 20px; padding: 0 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .cs-toc-top:hover { color: var(--ink); }
 .cs-sec { display: grid; gap: 14px; padding-bottom: clamp(56px, 7vw, 104px); scroll-margin-top: 24px; }
