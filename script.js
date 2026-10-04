@@ -3,22 +3,6 @@
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  // Interactive prototype: load the app into the frame only when the visitor asks for it
-  document.querySelectorAll("[data-embed]").forEach(function (box) {
-    var start = box.querySelector(".cs-proto-start");
-    if (!start) return;
-    start.addEventListener("click", function () {
-      var frame = document.createElement("iframe");
-      frame.src = box.getAttribute("data-embed");
-      frame.title = box.getAttribute("data-title") || "Interactive prototype";
-      frame.setAttribute("allow", "clipboard-write");
-      var screen = box.querySelector(".cs-screen");
-      screen.insertBefore(frame, screen.firstChild);
-      start.remove();
-      frame.focus();
-    });
-  });
-
   // Case study table of contents: mark the section in view
   var tocLinks = document.querySelectorAll(".cs-toc ol a[href^='#']");
   if (tocLinks.length && "IntersectionObserver" in window) {

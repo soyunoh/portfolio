@@ -139,7 +139,7 @@ img, svg { display: block; max-width: 100%; }
 .next h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 5vw, 64px); letter-spacing: -0.01em; margin-top: 6px; transition: opacity .2s; }
 .next:hover h2 { opacity: .55; }
 
-/* Interactive prototype (Pocket Saju): a white iPhone-shaped frame (402x874 screen, 15px body) that loads the app only after a click, so the case study stays light.
+/* Interactive prototype (Pocket Saju): a white iPhone-shaped frame (402x874 screen, 15px body) with the app loaded straight into it (the iframe is lazy: the browser fetches it when it nears the screen).
    The frame is drawn at its natural size and scaled to fit the column (and the window height) with a container-query unit, as .cs-cover-embed does. */
 .cs-proto-phone { position: relative; container-type: inline-size; width: min(100%, 432px, max(300px, calc((100svh - 96px) * 432 / 904))); aspect-ratio: 432 / 904; margin: 12px auto 0; }
 .cs-device { position: absolute; top: 0; left: 0; width: 432px; height: 904px; padding: 15px; border-radius: 68px; background: linear-gradient(145deg, #ffffff, #f0ece8); box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 22px 54px rgba(0,0,0,.16), inset 0 0 0 2px #ffffff; transform-origin: top left; transform: scale(calc(100cqw / 432px)); }
@@ -150,10 +150,12 @@ img, svg { display: block; max-width: 100%; }
 .cs-time { position: absolute; top: 18px; left: 0; width: 144px; text-align: center; }
 .cs-sys { position: absolute; top: 19px; right: 30px; display: flex; align-items: center; gap: 6px; fill: currentColor; }
 .cs-home { position: absolute; z-index: 2; bottom: 8px; left: 50%; width: 144px; height: 5px; margin-left: -72px; border-radius: 3px; background: #1c1512; pointer-events: none; }
-.cs-proto-start { all: unset; box-sizing: border-box; position: absolute; inset: 0; display: grid; place-items: center; cursor: pointer; font-family: var(--sans); font-size: 15px; font-weight: 500; }
-.cs-proto-start span { padding: 12px 22px; border-radius: 999px; background: var(--ink); color: var(--bg); transition: opacity .2s; }
-.cs-proto-start:hover span { opacity: .8; }
-.cs-proto-start:focus-visible span { outline: 2px solid var(--ink); outline-offset: 3px; }
+/* Wide screens: the text on the left, the phone at the right edge of the section (not between 1100 and 1279px, where the contents list leaves the body too narrow) */
+@media (min-width: 900px) and (max-width: 1099px), (min-width: 1280px) {
+  #prototype { grid-template-columns: minmax(0, 1fr) clamp(300px, calc((100svh - 96px) * 432 / 904), 432px); grid-template-rows: repeat(3, auto) 1fr; column-gap: clamp(32px, 4vw, 64px); align-items: start; }
+  #prototype > :not(.cs-proto-phone) { grid-column: 1; }
+  #prototype > .cs-proto-phone { grid-column: 2; grid-row: 1 / span 4; width: 100%; margin: 0; justify-self: end; }
+}
 
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
