@@ -45,7 +45,6 @@
               <li><a href="#context">Context</a></li>
               <li><a href="#solution">Solution</a></li>
               <li><a href="#features">Features</a></li>
-              <li><a href="#prototype">Prototype</a></li>
               <li><a href="#design-system">Design system</a></li>
               <li><a href="#design-to-build">Design to build</a></li>
               <li><a href="#reflection">Reflection</a></li>
@@ -81,24 +80,16 @@
             </div>
           </section>
 
-          <section class="cs-sec reveal" id="features" aria-labelledby="features-h">
+          <section class="cs-sec reveal" id="features" aria-labelledby="features-h" data-viewer>
             <p class="cs-label">Features</p>
             <h2 id="features-h">[Headline: what the app lets people do]</h2>
             <p>[One or two sentences introducing the key features.]</p>
-            <div class="cs-features">
-              <ul>
-                <li><h3>[Feature one]</h3><p>[One sentence on what it does and why it matters.]</p></li>
-                <li><h3>[Feature two]</h3><p>[One sentence on what it does and why it matters.]</p></li>
-                <li><h3>[Feature three]</h3><p>[One sentence on what it does and why it matters.]</p></li>
-              </ul>
-              <div class="cs-mock ph portrait" role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
+            <div class="cs-featurelist" role="group" aria-label="Features: choose one to open its screen in the app">
+              <button type="button" aria-pressed="true" data-route="/"><span class="t">[Feature one]</span><span class="d">[One sentence on what it does and why it matters.]</span></button>
+              <button type="button" aria-pressed="false" data-route="/checkin"><span class="t">[Feature two]</span><span class="d">[One sentence on what it does and why it matters.]</span></button>
+              <button type="button" aria-pressed="false" data-route="/ilju-type"><span class="t">[Feature three]</span><span class="d">[One sentence on what it does and why it matters.]</span></button>
             </div>
-          </section>
-
-          <section class="cs-sec reveal" id="prototype" aria-labelledby="prototype-h">
-            <p class="cs-label">Prototype</p>
-            <h2 id="prototype-h">Try the working app</h2>
-            <p>This is the app itself, not a recording. Draw an acorn, enter a birth date, and unlock a reading with test acorns. Nothing is charged and nothing leaves your browser.</p>
+            <p class="cs-note">This is the working app, not a recording. Choose a feature to jump to its screen, then keep exploring. Nothing is charged and nothing leaves your browser.</p>
             <div class="cs-proto-phone">
               <div class="cs-device">
                 <div class="cs-screen">

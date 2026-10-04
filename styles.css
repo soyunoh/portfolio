@@ -157,9 +157,9 @@ img, svg { display: block; max-width: 100%; }
 .cs-home { position: absolute; z-index: 2; bottom: 8px; left: 50%; width: 144px; height: 5px; margin-left: -72px; border-radius: 3px; background: #1c1512; pointer-events: none; }
 /* Wide screens: the text on the left, the phone at the right edge of the section (not between 1100 and 1279px, where the contents list leaves the body too narrow) */
 @media (min-width: 900px) and (max-width: 1099px), (min-width: 1280px) {
-  #prototype { grid-template-columns: minmax(0, 1fr) clamp(300px, calc((100svh - 96px) * 432 / 904), 432px); grid-template-rows: repeat(3, auto) 1fr; column-gap: clamp(32px, 4vw, 64px); align-items: start; }
-  #prototype > :not(.cs-proto-phone) { grid-column: 1; }
-  #prototype > .cs-proto-phone { grid-column: 2; grid-row: 1 / span 4; width: 100%; margin: 0; justify-self: end; }
+  #features { grid-template-columns: minmax(0, 1fr) clamp(300px, calc((100svh - 96px) * 432 / 904), 432px); grid-template-rows: repeat(5, auto) 1fr; column-gap: clamp(32px, 4vw, 64px); align-items: start; }
+  #features > :not(.cs-proto-phone) { grid-column: 1; }
+  #features > .cs-proto-phone { grid-column: 2; grid-row: 1 / span 6; width: 100%; margin: 0; justify-self: end; }
 }
 
 /* Reveal on scroll */
@@ -270,3 +270,11 @@ img, svg { display: block; max-width: 100%; }
 .cs-cards { display: grid; gap: var(--gap); }
 @media (min-width: 800px) { .cs-cards { grid-template-columns: repeat(3, 1fr); } }
 .cs-card { background: var(--surface); border-radius: var(--radius); padding: 24px; }
+
+/* Feature list beside the phone: choosing a feature opens that screen in the prototype (script.js) */
+.cs-featurelist { display: grid; gap: var(--gap); margin-top: 10px; }
+.cs-featurelist button { display: grid; gap: 6px; align-content: start; text-align: left; font: inherit; color: inherit; background: var(--surface); border: 1px solid transparent; border-radius: var(--radius); padding: 20px 24px; cursor: pointer; transition: border-color .2s, background .2s; }
+.cs-featurelist button[aria-pressed="true"] { background: #fff; border-color: var(--ink); }
+.cs-featurelist .t { font-size: 17px; font-weight: 500; }
+.cs-featurelist .d { font-size: 15px; line-height: 1.55; color: #4a4a4a; }
+.cs-note { font-size: 14px; line-height: 1.5; color: var(--muted); }
