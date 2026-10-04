@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pocket Saju — Soyun</title>
-  <meta name="description" content="Case study: Pocket Saju. Design Engineering, Design System, Character Design, App Design.">
+  <meta name="description" content="Case study: Pocket Saju, an AI-powered Korean Saju reading app for Gen Z and millennial women and LGBTQ+ users in North America.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Comfortaa:wght@500&display=swap" rel="stylesheet">
@@ -30,9 +30,10 @@
         <a class="back" href="../index.html">← All work</a>
         <h1>Pocket Saju</h1>
         <p class="tags-line">Design Engineering, Design System, Character Design, App Design</p>
-        <p class="sub">[One or two sentences: who it was for, the problem, and the outcome.]</p>
+        <p class="sub">Pocket Saju is an AI-powered Korean Saju reading app for Gen Z and millennial women and LGBTQ+ users in North America. It replaces vague, patriarchal readings with expert-backed, inclusive, and playful guidance.</p>
+        <p class="sub">About the name: “Pocket” means a Saju consultation you can pull out of your pocket anytime. It also refers to the lucky pouch (복주머니), a Korean symbol for holding good fortune.</p>
 
-        <dl class="cs-facts"><div><dt>Role</dt><dd>[Your role]</dd></div><div><dt>Team</dt><dd>[Team]</dd></div><div><dt>Timeline</dt><dd>[Timeline]</dd></div><div><dt>Platform</dt><dd>[Platform]</dd></div></dl>
+        <dl class="cs-facts"><div><dt>Role</dt><dd>Design Engineer</dd></div><div><dt>Team</dt><dd>Solo</dd></div><div><dt>Timeline</dt><dd>Sep 2026 – Present</dd></div><div><dt>Platform</dt><dd>iOS &amp; Android (React Native)</dd></div></dl>
 
         <div class="cs-cover" style="aspect-ratio: 2000 / 1429"><img src="../images/pocket-saju.webp" width="2000" height="1429" alt="Pocket Saju app home screen with today's read, daily check-in and reading topics"></div>
       </section>
@@ -57,37 +58,56 @@
           <section class="cs-sec reveal" aria-labelledby="impact-label">
             <p class="cs-label" id="impact-label">Impact</p>
             <div class="cs-stats">
-              <div class="cs-stat"><b>[00+]</b><span>[Metric]</span></div>
-              <div class="cs-stat"><b>[00+]</b><span>[Metric]</span></div>
-              <div class="cs-stat"><b>[00+]</b><span>[Metric]</span></div>
+              <div class="cs-stat"><b>2 weeks</b><span>Research to a working app</span></div>
+              <div class="cs-stat"><b>1 person</b><span>Research to development, solo</span></div>
+              <div class="cs-stat"><b>2 platforms</b><span>iOS and Android, one React Native codebase</span></div>
             </div>
           </section>
 
           <section class="cs-sec reveal" id="context" aria-labelledby="context-h">
             <p class="cs-label">Context</p>
-            <h2 id="context-h">[Headline: the problem in one line]</h2>
-            <p>[Describe who the app is for and what wasn't working, with the evidence behind it.]</p>
+            <h2 id="context-h">Saju is in demand, but no app is built for the people who want it</h2>
+            <h3>Who uses it</h3>
+            <p>No global survey on Saju exists, so I looked at the closely related astrology market (Pew Research, 2025):</p>
+            <ul class="cs-list">
+              <li>37% of Gen Z and 32% of millennials consult astrology at least once a year, compared with 20% of adults 65+.</li>
+              <li>Women and LGBTQ+ people use astrology at more than twice the rate of men. Among daily users, the gap is sharper: 1% of men, 2% of women, and 3% of LGBTQ+ adults.</li>
+            </ul>
+            <p>Based on this, I defined the core users as Gen Z and millennial women and LGBTQ+ people.</p>
+            <h3>What’s broken</h3>
+            <p>Demand is growing in North America, but no Korean Saju service has been built around these users. I analyzed 80+ competitor app reviews and 50+ Reddit comments on Saju posts and found four gaps:</p>
+            <ol class="cs-list">
+              <li><strong>Shallow, unexplained readings.</strong> Apps lack real Saju expertise. They skip advanced theory and exceptions, give vague, overly positive answers (the Barnum effect), and rarely explain how they reached a conclusion.</li>
+              <li><strong>Outdated gender norms.</strong> Traditional Saju is patriarchal. A match where the woman sacrifices for the man is still called “good compatibility.” Gender input is binary and assumes a heterosexual relationship, which shuts out LGBTQ+ users.</li>
+              <li><strong>Unstable service, no feedback loop.</strong> Frequent bugs hurt trust, and there’s no structured way to collect feedback and improve reading quality.</li>
+              <li><strong>Dull, mismatched UX.</strong> Most users use these apps for entertainment, but the apps lean on heavy, mystical imagery: spirits, cranes, and ink paintings.</li>
+            </ol>
           </section>
 
           <section class="cs-sec reveal" id="solution" aria-labelledby="solution-h">
             <p class="cs-label">Solution</p>
-            <h2 id="solution-h">[Headline: your approach in one line]</h2>
-            <p>[Explain the idea and why it works for this audience.]</p>
-            <div class="cs-bento">
-              <div class="cs-mock ph " role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
-              <div class="cs-mock ph " role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
-              <div class="cs-mock ph " role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
-            </div>
+            <h2 id="solution-h">Start from a sharply defined user</h2>
+            <p>The difference isn’t a single feature. Every decision, from how readings are written to the gender options to the character, came from a data-driven definition of who the users are. Competitors’ male-centered readings and stiff look and feel came from never defining their users clearly. In Pocket Saju, both the planning and the design are built around these users.</p>
+            <p>Users can get a reading as a full report or ask follow-up questions in a chat with the mascot.</p>
+            <h3>Four differentiators</h3>
+            <ol class="cs-list">
+              <li><strong>AI built on real Saju expertise.</strong> Interpretation rules come from my Saju knowledge and two years of consultation experience. The AI reads the whole chart (year, month, day, and hour pillars) and the interactions between the five elements, not just the day pillar. It names weaknesses and hard periods openly, pairs them with concrete advice, and shows the reasoning behind each conclusion.</li>
+              <li><strong>Modern, LGBTQ+-inclusive design.</strong> A match counts as good only if it’s good for both people. Gender isn’t forced into a binary. Areas of Saju that don’t depend on gender use one shared standard. Where traditional theory differs by gender, users choose a masculine or feminine reading, and the app explains the difference first. Example: “This match works well for him, but it’s a disappointing one from her side.”</li>
+              <li><strong>Stable service, continuous improvement.</strong> A real-time dashboard tracks app errors and user reports, so high-impact bugs get fixed first. Users who hit an error or a weak reading can report it through an in-app support chatbot and receive acorns (in-app currency) back after review. Feedback on clarity, relevance, and usefulness feeds back into the interpretation rules and prompts.</li>
+              <li><strong>Fun, engaging UX.</strong> A bright, light interface with a cute but blunt squirrel guide. Payment becomes play: the squirrel is “too hungry to read your fortune” until you feed it acorns. A daily lucky draw cracks an acorn open like a fortune cookie to reveal today’s reading.</li>
+            </ol>
           </section>
 
           <section class="cs-sec reveal" id="features" aria-labelledby="features-h" data-viewer>
             <p class="cs-label">Features</p>
-            <h2 id="features-h">[Headline: what the app lets people do]</h2>
-            <p>[One or two sentences introducing the key features.]</p>
+            <h2 id="features-h">Five features, built around the users</h2>
+            <p>Each feature turns one of the differentiators above into a screen you can try.</p>
             <div class="cs-featurelist" role="group" aria-label="Features: choose one to open its screen in the app">
-              <button type="button" aria-pressed="true" data-route="/"><span class="t">[Feature one]</span><span class="d">[One sentence on what it does and why it matters.]</span></button>
-              <button type="button" aria-pressed="false" data-route="/checkin"><span class="t">[Feature two]</span><span class="d">[One sentence on what it does and why it matters.]</span></button>
-              <button type="button" aria-pressed="false" data-route="/ilju-type"><span class="t">[Feature three]</span><span class="d">[One sentence on what it does and why it matters.]</span></button>
+              <button type="button" aria-pressed="true" data-route="/birth"><span class="t">Onboarding: choose your reading style</span><span class="d">Users pick a masculine or feminine reading instead of a binary gender, so everyone can join comfortably.</span></button>
+              <button type="button" aria-pressed="false" data-route="/ilju"><span class="t">Report reading</span><span class="d">An in-depth reading that shows its reasoning, so users understand why and can judge for themselves.</span></button>
+              <button type="button" aria-pressed="false" data-route="/" data-press-label="Ask Daram"><span class="t">Chat with Daram</span><span class="d">Ask follow-up questions and get honest, witty answers, like advice from a close older sister.</span></button>
+              <button type="button" aria-pressed="false" data-route="/" data-press-text="Draw an acorn"><span class="t">Daily lucky draw</span><span class="d">Pull an acorn from the pouch and crack it open for today’s fortune, a small daily moment of anticipation and surprise.</span></button>
+              <button type="button" aria-pressed="false" data-route="/ilju" data-press-text="Unlock the full reading"><span class="t">Acorn top-up and feeding</span><span class="d">Buy acorns and feed them to Daram to unlock readings, turning payment into a caring, playful interaction.</span></button>
             </div>
             <p class="cs-note">This is the working app, not a recording. Choose a feature to jump to its screen, then keep exploring. Nothing is charged and nothing leaves your browser.</p>
             <div class="cs-proto-phone">
@@ -112,28 +132,53 @@
 
           <section class="cs-sec reveal" id="design-system" aria-labelledby="design-system-h">
             <p class="cs-label">Design system</p>
-            <h2 id="design-system-h">[Headline: the system and character behind the look]</h2>
-            <p>[Describe the design system and the character design: what you built and the decisions behind it.]</p>
-            <div class="cs-mock ph landscape" role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
+            <h2 id="design-system-h">Cute but blunt, warm, and consistent</h2>
+            <div class="cs-points">
+              <div>
+                <h3>Mascot: Daram the squirrel</h3>
+                <p>Saju combines 12 animals and 10 natural elements into 60 character types. My own type is the squirrel, so Daram is my voice. The readings reflect my perspective and are reviewed by me. A squirrel’s habit of gathering acorns, paired with the lucky pouch, became the product’s story: users give acorns that fill the pouch (top-up and feeding), and acorns come out of the pouch as daily fortunes (lucky draw).</p>
+              </div>
+              <div>
+                <h3>Personality: cute but blunt</h3>
+                <p>Daram says no when the answer is no, honestly and without sugarcoating, like a close older sister giving advice. This answers the vague, flattering readings of other apps. The cute look reflects what the target users enjoy and softens the honesty. Daram has nine emotional states (guide, happy, excited, love, hungry, generous, scold, eating, celebrate), used in place of emojis.</p>
+              </div>
+              <div>
+                <h3>Color: warm pastels</h3>
+                <p>A cream background with one accent, coral, reserved for actions: one coral action per screen. Acorn brown and muted five-element colors add warmth, so tradition shows through texture rather than as a theme. Dark surfaces stay warm coral-brown. Mystical purples and blue-greys are banned, a deliberate break from competitors.</p>
+              </div>
+              <div>
+                <h3>Typography</h3>
+                <p>The logo and English titles use Comfortaa, which is round, soft, and friendly. Its curves stand out most in lowercase, so the wordmark is set as “pocket saju.” Body text uses Noto Sans for readability, Korean uses Noto Sans KR, and Hanja pillars use Instrument Serif.</p>
+              </div>
+              <div>
+                <h3>Brand rules</h3>
+                <p>The pouch is the logo and the acorn is the currency. Their roles never swap.</p>
+              </div>
+              <div>
+                <h3>Tokens</h3>
+                <p>4px spacing, a rounded radius scale, and no blurred shadows. Every value is a named token used identically in design and code, which keeps the two from drifting apart.</p>
+              </div>
+            </div>
           </section>
 
           <section class="cs-sec reveal" id="design-to-build" aria-labelledby="design-to-build-h">
             <p class="cs-label">Design to build</p>
-            <h2 id="design-to-build-h">[Headline: how you took it from design to production]</h2>
-            <p>[Describe your design-engineering workflow: tools, how you iterated, and what you shipped.]</p>
-            <div class="cs-trio">
-              <div class="cs-mock ph portrait" role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
-              <div class="cs-mock ph portrait" role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
-              <div class="cs-mock ph portrait" role="img" aria-label="Placeholder for an image"><span>[Image]</span></div>
-            </div>
+            <h2 id="design-to-build-h">From research to a working app in two weeks</h2>
+            <ol class="cs-list">
+              <li><strong>Research (2 days):</strong> Pew Research data, 80+ competitor reviews, 50+ Reddit comments.</li>
+              <li><strong>Design system and character (1 day):</strong> color and type tokens, Daram.</li>
+              <li><strong>Screen design (5 days):</strong> designed in Claude Design.</li>
+              <li><strong>Build (1 day):</strong> implemented in React Native with Claude Code and GitHub.</li>
+              <li><strong>Test and iterate (remaining time):</strong> tested the app and refined it.</li>
+            </ol>
+            <p>Most of the time went into design. Because the design system was defined as tokens up front, design and code stayed in sync, and the build took just one day.</p>
           </section>
 
           <section class="cs-sec reveal" id="reflection" aria-labelledby="reflection-h">
             <p class="cs-label">Reflection</p>
             <h2 id="reflection-h">What I learned</h2>
-            <p>[One sentence framing the reflection.]</p>
             <div class="cs-cards">
-              <div class="cs-card"><h3>[Lesson one]</h3><p>[A few sentences on what you learned.]</p></div>
+              <div class="cs-card"><h3>A sharp user definition makes every decision easier</h3><p>Defining the core users with data guided every choice in planning and design, from reading tone to gender options to the character.</p></div>
               <div class="cs-card"><h3>[Lesson two]</h3><p>[A few sentences on what you learned.]</p></div>
               <div class="cs-card"><h3>[Lesson three]</h3><p>[A few sentences on what you learned.]</p></div>
             </div>

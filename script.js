@@ -18,24 +18,69 @@
 
   // Feature list + prototype: choosing a feature opens its screen in the app inside the phone frame.
   // The app is a same-origin Expo Router build, so we push the route into the iframe's history and fire popstate.
+  // Some features live in a sheet (chat, daily draw, top-up): after the route opens we press that button inside the app.
+  // Sheets stay open across routes in the app, so after one of those the frame is reloaded before the next feature.
   document.querySelectorAll("[data-viewer]").forEach(function (v) {
     var frame = v.querySelector("iframe");
     var buttons = [].slice.call(v.querySelectorAll("button[data-route]"));
     if (!frame || !buttons.length) return;
     var base = new URL(frame.getAttribute("src"), location.href).pathname.replace(/\/$/, "");
-    function ready(w) {
-      try { return w.location.pathname.indexOf(base) === 0 && !!w.document.body && w.document.body.innerText.length > 0; } catch (e) { return false; }
-    }
-    function open(route, tries) {
-      var w = frame.contentWindow;
-      if (!ready(w)) {
-        if (tries < 100) setTimeout(function () { open(route, tries + 1); }, 100);
-        return;
-      }
-      w.history.pushState(null, "", base + route);
-      w.dispatchEvent(new w.PopStateEvent("popstate", { state: null }));
-    }
     var phone = v.querySelector(".cs-proto-phone");
+    var seq = 0;
+    var dirty = false;
+
+    function ready(w) {
+      try { return !w.__stale && w.location.pathname.indexOf(base) === 0 && !!w.document.body && w.document.body.innerText.length > 0; } catch (e) { return false; }
+    }
+    function whenReady(cb, token, tries) {
+      if (token !== seq) return;
+      var w = frame.contentWindow;
+      if (ready(w)) { cb(w); return; }
+      if (tries < 150) setTimeout(function () { whenReady(cb, token, tries + 1); }, 100);
+    }
+    function pressWhenShown(w, label, text, token, tries) {
+      if (token !== seq) return;
+      var el = null;
+      try {
+        [].slice.call(w.document.querySelectorAll('[role="button"]')).some(function (b) {
+          var r = b.getBoundingClientRect();
+          if (!r.width || !r.height) return false;
+          if ((label && b.getAttribute("aria-label") === label) || (text && (b.innerText || "").indexOf(text) !== -1)) { el = b; return true; }
+          return false;
+        });
+      } catch (e) { return; }
+      if (el) { el.click(); return; }
+      if (tries < 40) setTimeout(function () { pressWhenShown(w, label, text, token, tries + 1); }, 150);
+    }
+    function go(w, route, token, tries) {
+      if (token !== seq) return;
+      var target = route === "/" ? base + "/" : base + route;
+      w.history.pushState(null, "", target);
+      w.dispatchEvent(new w.PopStateEvent("popstate", { state: null }));
+      // a freshly started app can still reset its own route once; check and push again
+      setTimeout(function () {
+        try { if (token === seq && tries < 3 && w.location.pathname !== target) go(w, route, token, tries + 1); } catch (e) {}
+      }, 700);
+    }
+    function apply(w, b, token) {
+      var label = b.getAttribute("data-press-label");
+      var text = b.getAttribute("data-press-text");
+      go(w, b.getAttribute("data-route"), token, 0);
+      if (label || text) {
+        dirty = true;
+        setTimeout(function () { pressWhenShown(w, label, text, token, 0); }, 1200);
+      }
+    }
+    function show(b) {
+      var token = ++seq;
+      whenReady(function (w) {
+        if (!dirty) { apply(w, b, token); return; }
+        dirty = false;
+        w.__stale = true;
+        w.location.replace(base + "/");
+        setTimeout(function () { whenReady(function (w2) { setTimeout(function () { if (token === seq) apply(w2, b, token); }, 600); }, token, 0); }, 300);
+      }, token, 0);
+    }
     function bringIntoView() {
       if (!phone) return;
       var r = phone.getBoundingClientRect();
@@ -45,7 +90,7 @@
     buttons.forEach(function (b) {
       b.addEventListener("click", function () {
         buttons.forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
-        open(b.getAttribute("data-route"), 0);
+        show(b);
         bringIntoView();
       });
     });
